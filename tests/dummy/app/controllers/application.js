@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 
 export default class ApplicationController extends Controller {
   width = 300;
-  height = 400;
+  height = 200;
   minWidth = 10;
   minHeight = 10;
   maxWidth = null;
