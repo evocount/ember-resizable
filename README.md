@@ -37,9 +37,9 @@ or
   @minHeight="50"
   @maxWidth="800"
   @maxHeight="600"
-  lockAspectRatio=true
-  grid=(array 2 2)
-  directions=(array "top" "right" "bottom" "left")
+  @lockAspectRatio={{true}}
+  @grid={{array 2 2}}
+  @directions={{array "top" "right" "bottom" "left"}}
 >
   Your Content
 </ReSizable>

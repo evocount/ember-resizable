@@ -1,5 +1,11 @@
 @import 'ember-resizable';
+@import "ember-power-select";
 
 .demo {
     background-color: #ccc;
+}
+
+input {
+  padding: 8px 16px;
+  margin: 4px 8px;
 }

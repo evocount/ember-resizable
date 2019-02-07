@@ -1,7 +1,74 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title"><a href="https://github.com/evocount/ember-resizable">Ember-resizable</a> Demo</h2>
 
-<ReSizable class="demo" @width="200" @height="100">
-  <h1>Hello World</h1>
+<form>
+  <div>
+    <label for="width">Width:</label>
+    <input value={{width}} id="width" onchange={{action (mut width) value="target.value"}} type="number">
+  </div>
+  <div>
+    <label for="height">Height:</label>
+    <input value={{height}} id="height" onchange={{action (mut height) value="target.value"}} type="number">
+  </div>
+
+  <div>
+    <label for="minWidth">Minimum Width:</label>
+    <input value={{minWidth}} id="minWidth" onchange={{action (mut minWidth) value="target.value"}} type="number">
+  </div>
+  <div>
+    <label for="minHeight">Minimum Height:</label>
+    <input value={{minHeight}} id="minHeight" onchange={{action (mut minHeight) value="target.value"}} type="number">
+  </div>
+  <div>
+    <label for="minWidth">Maximum Width:</label>
+    <input value={{maxWidth}} id="maxWidth" onchange={{action (mut maxWidth) value="target.value"}} type="number">
+  </div>
+  <div>
+    <label for="maxHeight">Maximum Height:</label>
+    <input value={{maxHeight}} id="maxHeight" onchange={{action (mut maxHeight) value="target.value"}} type="number">
+  </div>
+
+  <div>
+    <label for="lockAspectRatio">Lock aspect ratio:</label>
+    <input value={{lockAspectRatio}} id="lockAspectRatio" onchange={{action (mut lockAspectRatio) value="target.checked"}} type="checkbox">
+  </div>
+
+  <div>
+    <label for="gridX">Grid (snapping for x-axis):</label>
+    <input value={{grid.[0]}} id="gridX" onchange={{action (mut grid.[0]) value="target.value"}} type="number">
+  </div>
+  <div>
+    <label for="gridY">Grid (snapping for y-axis):</label>
+    <input value={{grid.[1]}} id="gridY" onchange={{action (mut grid.[1]) value="target.value"}} type="number">
+  </div>
+
+  <div>
+    <label for="directions">Directions:</label>
+    <PowerSelectMultiple
+      @options={{availableDirections}}
+      @selected={{directions}}
+      @onchange={{action (mut directions)}} as |item|
+    >
+      {{item}}
+    </PowerSelectMultiple>
+  </div>
+</form>
+
+<ReSizable
+  class="demo"
+  @width={{width}}
+  @height={{height}}
+  @minWidth={{minWidth}}
+  @minHeight={{minHeight}}
+  @maxWidth={{maxWidth}}
+  @maxHeight={{maxHeight}}
+  @lockAspectRatio={{lockAspectRatio}}
+  @grid={{grid}}
+  @directions={{directions}}
+>
+  <h1>Resize me</h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
 </ReSizable>
 
 {{outlet}}
