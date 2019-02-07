@@ -52,6 +52,12 @@ Have a look at the code snippets in the demo for an example on how this can be d
 | `onResize`       | `direction`, `{ width: newWidth, height: newHeight }`, `{ width: clientWidth, height: clientHeight }`, `{ width: deltaX, height: deltaY }`  |  . |
 
 
+In addition it is possible to adjust the size of the resize handlers in your scss:
+```scss
+// 10px is the default size
+$ember-resizable-resizer-size: 10px;
+```
+
 License
 ------------------------------------------------------------------------------
 
