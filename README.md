@@ -12,9 +12,14 @@ Installation
 ember install ember-resizable
 ```
 
-
 Usage
 ------------------------------------------------------------------------------
+
+Include the following in your app.scss:
+
+```scss
+@import 'ember-resizable';
+```
 
 ```hbs
 <ReSizable @width="200" @height="100">

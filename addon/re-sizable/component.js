@@ -26,8 +26,8 @@ class ReSizable extends Component {
   onResizeStop = null;
   onResize = null;
 
-   @className
-   isActive = false;
+  @className
+  isActive = false;
 
   @attribute
   @computed('width', 'height')

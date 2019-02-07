@@ -1,0 +1,81 @@
+$ember-resizable-resizer-size: 10px !default;
+
+.re-sizable {
+  position: relative;
+  user-select: auto;
+
+  &.is-active {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  >.resizer {
+    position: absolute;
+
+    &.top,
+    &.bottom {
+      width: 100%;
+      height: $ember-resizable-resizer-size;
+      left: 0;
+      cursor: row-resize;
+    }
+
+    &.left,
+    &.right {
+      width: $ember-resizable-resizer-size;
+      height: 100%;
+      top: 0;
+      cursor: col-resize;
+    }
+
+    &.top {
+      top: -$ember-resizable-resizer-size / 2;
+    }
+
+    &.right {
+      right: -$ember-resizable-resizer-size / 2;
+    }
+
+    &.bottom {
+      bottom: -$ember-resizable-resizer-size / 2;
+    }
+
+    &.left {
+      left: -$ember-resizable-resizer-size / 2;
+    }
+
+    &.topRight,
+    &.bottomRight,
+    &.bottomLeft,
+    &.topLeft {
+      width: $ember-resizable-resizer-size * 2;
+      height: $ember-resizable-resizer-size * 2;
+    }
+
+    &.topRight {
+      right: -$ember-resizable-resizer-size;
+      top: -$ember-resizable-resizer-size;
+      cursor: sw-resize;
+    }
+
+    &.bottomRight {
+      right: -$ember-resizable-resizer-size;
+      bottom: -$ember-resizable-resizer-size;
+      cursor: nw-resize;
+    }
+
+    &.bottomLeft {
+      left: -$ember-resizable-resizer-size;
+      bottom: -$ember-resizable-resizer-size;
+      cursor: ne-resize;
+    }
+
+    &.topLeft {
+      left: -$ember-resizable-resizer-size;
+      top: -$ember-resizable-resizer-size;
+      cursor: se-resize;
+    }
+  }
+}
