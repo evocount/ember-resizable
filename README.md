@@ -29,9 +29,27 @@ Basic usage:
 </ReSizable>
 ```
 
-Have a look at the demo for a more advanced example.
+`<ReSizable>` does not adjust its size by itself. You have to do this manually by binding to `onResize`.
+Have a look at the code snippets in the demo for an example on how this can be done.
 
-…
+### Properties
+| Property | default | Type | Notes |
+| --- | --- | :---: | --- |
+| `minWidth` | `10` | int | Minimum width in pixels |
+| `minHeight` | `10` | int | Minimum height in pixels |
+| `maxWidth` |  | int | Maximum width in pixels |
+| `maxHeight` |  | int | Maximum height in pixels |
+| `grid` | `[1, 1]` | array: int | Used for snapping on x, y axis. If set to [200, 50] for example, width will snap to 0, 200, 400, 600, … while height will snap to 0, 50, 100, 150, … |
+| `lockAspectRatio` | `false` | bool | Maintain aspect ratio that is found during beginning of resize |
+| `directions` | `['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft']` | array: string | On which sides/corners to enable resizing |
+
+
+### Actions
+| Name | Params | Note |
+| --- | --- | --- |
+| `onResizeStart`  | `direction`, `{ width: computedWidth, height: computedHeight }`, `{ width: clientWidth, height: clientHeight }`, `event` |   |
+| `onResizeStop`   |  `direction`, `{ width: computedWidth, height: computedHeight }`, `{ width: clientWidth, height: clientHeight }`, `{ width: deltaX, height: deltaY }` | If you did not adjust the size of `<ReSizable>` by changing its dimension using for e.g. the values provided by `onResize` `deltaX` and `deltaY` will be `0` |
+| `onResize`       | `direction`, `{ width: newWidth, height: newHeight }`, `{ width: clientWidth, height: clientHeight }`, `{ width: deltaX, height: deltaY }`  |  . |
 
 
 License
