@@ -1,80 +1,58 @@
-<h2 id="title"><a href="https://github.com/evocount/ember-resizable">Ember-resizable</a> Demo</h2>
+<section class="center-box">
+  <h2 id="title"><a href="https://github.com/evocount/ember-resizable">Ember-resizable</a> Demo</h2>
 
-<form>
-  <div>
-    <label for="width">Width:</label>
-    <input value={{width}} id="width" onchange={{action (mut width) value="target.value"}}>
-  </div>
-  <div>
-    <label for="height">Height:</label>
-    <input value={{height}} id="height" onchange={{action (mut height) value="target.value"}}>
-  </div>
+  <BsForm @model={{this}} @formLayout="horizontal" as |Form|>
+    <Form.element @property="width" @label="Width" />
+    <Form.element @property="height" @label="Height" />
 
-  <div>
-    <label for="minWidth">Minimum Width:</label>
-    <input value={{minWidth}} id="minWidth" onchange={{action (mut minWidth) value="target.value"}} type="number">
-  </div>
-  <div>
-    <label for="minHeight">Minimum Height:</label>
-    <input value={{minHeight}} id="minHeight" onchange={{action (mut minHeight) value="target.value"}} type="number">
-  </div>
-  <div>
-    <label for="minWidth">Maximum Width:</label>
-    <input value={{maxWidth}} id="maxWidth" onchange={{action (mut maxWidth) value="target.value"}} type="number">
-  </div>
-  <div>
-    <label for="maxHeight">Maximum Height:</label>
-    <input value={{maxHeight}} id="maxHeight" onchange={{action (mut maxHeight) value="target.value"}} type="number">
-  </div>
+    <Form.element @property="minWidth" @label="Minimum Width" @controlType="number" />
+    <Form.element @property="minHeight" @label="Minimum Height" @controlType="number" />
+    <Form.element @property="maxWidth" @label="Maximum Width" @controlType="number" />
+    <Form.element @property="maxHeight" @label="Maximum Height" @controlType="number" />
 
-  <div>
-    <label for="lockAspectRatio">Lock aspect ratio:</label>
-    <input value={{lockAspectRatio}} id="lockAspectRatio" onchange={{action (mut lockAspectRatio) value="target.checked"}} type="checkbox">
-  </div>
+    <Form.element @property="lockAspectRatio" @label="Lock aspect ratio" @controlType="checkbox" />
 
-  <div>
-    <label for="gridX">Grid (snapping for x-axis):</label>
-    <input value={{grid.[0]}} id="gridX" onchange={{action (mut grid.[0]) value="target.value"}} type="number">
-  </div>
-  <div>
-    <label for="gridY">Grid (snapping for y-axis):</label>
-    <input value={{grid.[1]}} id="gridY" onchange={{action (mut grid.[1]) value="target.value"}} type="number">
-  </div>
+    <Form.element @property="grid.0" @label="Grid (snapping for x-axis)" @controlType="number" />
+    <Form.element @property="grid.1" @label="Grid (snapping for y-axis)" @controlType="number" />
 
-  <div>
-    <label for="directions">Directions:</label>
-    <PowerSelectMultiple
-      @options={{availableDirections}}
-      @selected={{directions}}
-      @onchange={{action (mut directions)}} as |item|
-    >
-      {{item}}
-    </PowerSelectMultiple>
-  </div>
-</form>
+    <Form.element @property="directions" @label="Directions" as |el|>
+      <PowerSelectMultiple
+        @options={{availableDirections}}
+        @selected={{el.value}}
+        @onchange={{action (mut el.value)}} as |item|
+      >
+        {{item}}
+      </PowerSelectMultiple>
+    </Form.element>
+  </BsForm>
 
-<ReSizable
-  class="demo"
-  style={{resizableStyle}}
-  @minWidth={{minWidth}}
-  @minHeight={{minHeight}}
-  @maxWidth={{maxWidth}}
-  @maxHeight={{maxHeight}}
-  @lockAspectRatio={{lockAspectRatio}}
-  @grid={{grid}}
-  @directions={{directions}}
-  @onResize={{action "onResize"}}
->
-  <h1>Resize me</h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. …
-  </p>
-</ReSizable>
-
-Template:
-<CodeSnippet @name="resizable.hbs" />
-
-Code:
-<CodeSnippet @name="resizable.js" />
+  <BsTab as |Tab|>
+    <Tab.pane @title="Result">
+      <ReSizable
+        class="alert alert-secondary"
+        style={{resizableStyle}}
+        @minWidth={{minWidth}}
+        @minHeight={{minHeight}}
+        @maxWidth={{maxWidth}}
+        @maxHeight={{maxHeight}}
+        @lockAspectRatio={{lockAspectRatio}}
+        @grid={{grid}}
+        @directions={{directions}}
+        @onResize={{action "onResize"}}
+      >
+        <h1>Resize me</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. …
+        </p>
+      </ReSizable>
+    </Tab.pane>
+    <Tab.pane @title="Template">
+      <CodeSnippet @name="resizable.hbs" />
+    </Tab.pane>
+    <Tab.pane @title="Code">
+      <CodeSnippet @name="resizable.js" />
+    </Tab.pane>
+  </BsTab>
+</section>
 
 {{outlet}}

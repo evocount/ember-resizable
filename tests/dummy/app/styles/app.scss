@@ -1,11 +1,19 @@
 @import 'ember-resizable';
 @import "ember-power-select";
+@import "ember-bootstrap/bootstrap";
 
-.demo {
-    background-color: #ccc;
-}
 
-input {
-  padding: 8px 16px;
-  margin: 4px 8px;
+.center-box {
+  max-width: 1200px;
+  margin: auto;
+  padding: 8px;
+  padding-top: 0;
+
+  h2 {
+    text-align: center;
+  }
+
+  .tab-content {
+    padding: 16px 8px;
+  }
 }
