@@ -3,11 +3,11 @@
 <form>
   <div>
     <label for="width">Width:</label>
-    <input value={{width}} id="width" onchange={{action (mut width) value="target.value"}} type="number">
+    <input value={{width}} id="width" onchange={{action (mut width) value="target.value"}}>
   </div>
   <div>
     <label for="height">Height:</label>
-    <input value={{height}} id="height" onchange={{action (mut height) value="target.value"}} type="number">
+    <input value={{height}} id="height" onchange={{action (mut height) value="target.value"}}>
   </div>
 
   <div>
@@ -55,8 +55,7 @@
 
 <ReSizable
   class="demo"
-  @width={{width}}
-  @height={{height}}
+  style={{resizableStyle}}
   @minWidth={{minWidth}}
   @minHeight={{minHeight}}
   @maxWidth={{maxWidth}}
@@ -64,6 +63,7 @@
   @lockAspectRatio={{lockAspectRatio}}
   @grid={{grid}}
   @directions={{directions}}
+  @onResize={{action "onResize"}}
 >
   <h1>Resize me</h1>
   <p>
@@ -71,6 +71,10 @@
   </p>
 </ReSizable>
 
+Template:
 <CodeSnippet @name="resizable.hbs" />
+
+Code:
+<CodeSnippet @name="resizable.js" />
 
 {{outlet}}

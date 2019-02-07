@@ -1,7 +1,6 @@
 <ReSizable
   class="demo"
-  @width={{width}}
-  @height={{height}}
+  style={{resizableStyle}}
   @minWidth={{minWidth}}
   @minHeight={{minHeight}}
   @maxWidth={{maxWidth}}
@@ -9,6 +8,7 @@
   @lockAspectRatio={{lockAspectRatio}}
   @grid={{grid}}
   @directions={{directions}}
+  @onResize={{action "onResize"}}
 >
   <h1>Resize me</h1>
   <p>

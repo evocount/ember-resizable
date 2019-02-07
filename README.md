@@ -21,29 +21,15 @@ Include the following in your app.scss:
 @import 'ember-resizable';
 ```
 
+Basic usage:
+
 ```hbs
-<ReSizable @width="200" @height="100">
+<ReSizable @onResize={{action "onResize"}}>
   Your Content
 </ReSizable>
 ```
 
-or
-
-```hbs
-<ReSizable
-  @width="200"
-  @height="100"
-  @minWidth="150"
-  @minHeight="50"
-  @maxWidth="800"
-  @maxHeight="600"
-  @lockAspectRatio={{true}}
-  @grid={{array 2 2}}
-  @directions={{array "top" "right" "bottom" "left"}}
->
-  Your Content
-</ReSizable>
-```
+Have a look at the demo for a more advanced example.
 
 …
 

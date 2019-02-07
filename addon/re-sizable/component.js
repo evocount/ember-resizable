@@ -7,13 +7,9 @@ import template from './template';
 
 /*global window*/
 
-const getSize = (n) => !isNaN(parseFloat(n)) && isFinite(n) ? `${n}px` : n;
-
 @layout(template)
 @classNames('re-sizable')
 class ReSizable extends Component {
-  width = 'auto';
-  height = 'auto';
   minWidth = 10;
   minHeight = 10;
   maxWidth = null;
@@ -29,16 +25,10 @@ class ReSizable extends Component {
   @className
   isActive = false;
 
-  @attribute
-  @computed('width', 'height')
-  get style() {
-    return `width: ${getSize(this.width)}; height: ${getSize(this.height)};`;
-  }
-
   didInsertElement() {
     super.didInsertElement(...arguments);
 
-    // TODO only do this when upon resizeStart
+    // TODO only do this upon resizeStart
     addEventListener(this, window, 'mouseup', this._onMouseUp);
     addEventListener(this, window, 'mousemove', this._onMouseMove);
     addEventListener(this, window, 'touchmove', this._onTouchMove);
@@ -151,22 +141,10 @@ class ReSizable extends Component {
       }
     }
 
-    this.set('width', newWidth);
-    this.set('height', newHeight);
-
-    /*this.setState({
-      width: width !== 'auto' ? newWidth : 'auto',
-      height: height !== 'auto' ? newHeight : 'auto',
-    });
-    const resizable = this.refs.resizable;
-    const styleSize = {
-      width: newWidth || this.state.width,
-      height: newHeight || this.state.height,
-    };*/
     if (this.onResize) {
       this.onResize(
         this._direction,
-        //styleSize,
+        { width: newWidth, height: newHeight },
         { width: this.element.clientWidth, height: this.element.clientHeight },
         { width: newWidth - original.width, height: newHeight - original.height }
       );
