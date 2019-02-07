@@ -2,7 +2,7 @@
 
 ## Installation
 
-* `git clone <repository-url>`
+* `git clone git@github.com:evocount/ember-resizable.git`
 * `cd ember-resizable`
 * `npm install`
 

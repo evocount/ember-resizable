@@ -1,15 +1,9 @@
 ember-resizable
 ==============================================================================
 
-[Short description of the addon.]
+Resizable component for Ember.  ([Demo](https://evocount.github.io/ember-resizable/))
 
-
-Compatibility
-------------------------------------------------------------------------------
-
-* Ember.js v2.18 or above
-* Ember CLI v2.13 or above
-
+This is larged inspired by/based on [re-resizable](https://github.com/bokuweb/re-resizable).
 
 Installation
 ------------------------------------------------------------------------------
@@ -22,7 +16,31 @@ ember install ember-resizable
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+```hbs
+<ReSizable @width="200" @height="100">
+  Your Content
+</ReSizable>
+```
+
+or
+
+```hbs
+<ReSizable
+  @width="200"
+  @height="100"
+  @minWidth="150"
+  @minHeight="50"
+  @maxWidth="800"
+  @maxHeight="600"
+  lockAspectRatio=true
+  grid=(array 2 2)
+  directions=(array "top" "right" "bottom" "left")
+>
+  Your Content
+</ReSizable>
+```
+
+…
 
 
 License
