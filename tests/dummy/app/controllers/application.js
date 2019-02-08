@@ -1,7 +1,5 @@
 import Controller from '@ember/controller';
-import { action, computed } from '@ember-decorators/object';
-
-const getSize = (n) => !isNaN(parseFloat(n)) && isFinite(n) ? `${n}px` : n;
+import { action } from '@ember-decorators/object';
 
 export default class ApplicationController extends Controller {
   width = 300;
@@ -17,12 +15,7 @@ export default class ApplicationController extends Controller {
   availableDirections = ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'];
 
   @action
-  onResize(direction, newDimensions/*, clientSize, delta*/) {
+  onResize(direction, newDimensions/*, delta, element*/) {
     this.setProperties(newDimensions);
-  }
-
-  @computed('width', 'height')
-  get resizableStyle() {
-    return `width: ${getSize(this.width)}; height: ${getSize(this.height)};`;
   }
 }

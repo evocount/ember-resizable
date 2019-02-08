@@ -24,17 +24,18 @@ Include the following in your app.scss:
 Basic usage:
 
 ```hbs
-<ReSizable @onResize={{action "onResize"}}>
+<ReSizable @width="300" @height="200">
   Your Content
 </ReSizable>
 ```
 
-`<ReSizable>` does not adjust its size by itself. You have to do this manually by binding to `onResize`.
-Have a look at the code snippets in the demo for an example on how this can be done.
+This will make `<ReSizable>` adjust its size according to user input. If you want to manually control its size, bind to `onResize` while not setting `width` and `height`. Manually setting `width`, `height` between resizes is of course also possible.
 
 ### Properties
 | Property | default | Type | Notes |
 | --- | --- | :---: | --- |
+| `width` | `null` | int or string  | Initial size. If provided the component will adjust its size according to user input. If omitted or `null` it will not change its size. This is a one way binding nevertheless. |
+| `height` | `null` | int or string  | Initial size. If provided the component will adjust its size according to user input. If omitted or `null` it will not change its size. This is a one way binding nevertheless. |
 | `minWidth` | `10` | int | Minimum width in pixels |
 | `minHeight` | `10` | int | Minimum height in pixels |
 | `maxWidth` |  | int | Maximum width in pixels |
@@ -48,7 +49,7 @@ Have a look at the code snippets in the demo for an example on how this can be d
 | Name | Params | Note |
 | --- | --- | --- |
 | `onResizeStart`  | `direction`, `event`, `element` | `element` is the `<ReSizable>` DOM element |
-| `onResizeStop`   |  `direction`, `{ width: deltaX, height: deltaY }`, `element` | If you did not adjust the size of `<ReSizable>` by changing its dimension using for e.g. the values provided by `onResize` `deltaX` and `deltaY` will be `0` |
+| `onResizeStop`   |  `direction`, `{ width: deltaX, height: deltaY }`, `element` | If you did not adjust the size of `<ReSizable>` by changing its dimension and if you did not provide `width`/`height` using for e.g. the values provided by `onResize` `deltaX` and `deltaY` will be `0` |
 | `onResize`       | `direction`, `{ width: newWidth, height: newHeight }`, `{ width: deltaX, height: deltaY }`, `element`  |  . |
 
 

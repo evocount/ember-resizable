@@ -1,11 +1,14 @@
 import Component from '@ember/component';
 import { dasherize, capitalize } from '@ember/string';
-import { action, } from '@ember-decorators/object';
-import { className, classNames, layout } from '@ember-decorators/component';
+import { isNone } from '@ember/utils';
+import { action, computed } from '@ember-decorators/object';
+import { attribute, className, classNames, layout } from '@ember-decorators/component';
 import { addEventListener, removeEventListener, runDisposables } from 'ember-lifeline';
 import template from './template';
 
 /*global window*/
+
+const getSize = (n) => !isNaN(parseFloat(n)) && isFinite(n) ? `${n}px` : n;
 
 @layout(template)
 @classNames('re-sizable')
@@ -24,6 +27,40 @@ class ReSizable extends Component {
 
   @className
   isActive = false;
+
+  @attribute
+  @computed('width', 'height', 'elementWidth', 'elementHeight')
+  get style() {
+    let s = '';
+    if (!isNone(this.width)) {
+      s = `width: ${getSize(this.elementWidth || this.width)};`;
+    }
+    if (!isNone(this.height)) {
+      s = `${s}height: ${getSize(this.elementHeight || this.height)};`;
+    }
+
+    return s;
+  }
+
+  @computed('_width')
+  get width() {
+    return this._width;
+  }
+
+  set width(value) {
+    this.set('_width', value);
+    this.set('elementWidth', value);
+  }
+
+  @computed('_height')
+  get height() {
+    return this._height;
+  }
+
+  set height(value) {
+    this.set('_height', value);
+    this.set('elementHeight', value);
+  }
 
   willDestroyElement() {
     super.willDestroyElement(...arguments);
@@ -126,6 +163,9 @@ class ReSizable extends Component {
         newHeight = newWidth * ratio;
       }
     }
+
+    this.set('elementWidth', newWidth);
+    this.set('elementHeight', newHeight);
 
     if (this.onResize) {
       this.onResize(
