@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { dasherize, capitalize } from '@ember/string';
 import { action, } from '@ember-decorators/object';
 import { className, classNames, layout } from '@ember-decorators/component';
-import { addEventListener, runDisposables } from 'ember-lifeline';
+import { addEventListener, removeEventListener, runDisposables } from 'ember-lifeline';
 import template from './template';
 
 /*global window*/
@@ -24,16 +24,6 @@ class ReSizable extends Component {
 
   @className
   isActive = false;
-
-  didInsertElement() {
-    super.didInsertElement(...arguments);
-
-    // TODO only do this upon resizeStart
-    addEventListener(this, window, 'mouseup', this._onMouseUp);
-    addEventListener(this, window, 'mousemove', this._onMouseMove);
-    addEventListener(this, window, 'touchmove', this._onTouchMove);
-    addEventListener(this, window, 'touchend', this._onMouseUp);
-  }
 
   willDestroyElement() {
     super.willDestroyElement(...arguments);
@@ -68,6 +58,11 @@ class ReSizable extends Component {
       height: size.height,
     });
     this.set('_direction', direction);
+
+    addEventListener(this, window, 'mouseup', this._onMouseUp);
+    addEventListener(this, window, 'mousemove', this._onMouseMove);
+    addEventListener(this, window, 'touchmove', this._onTouchMove);
+    addEventListener(this, window, 'touchend', this._onMouseUp);
   }
 
   _onTouchMove(event) {
@@ -85,10 +80,6 @@ class ReSizable extends Component {
   }
 
   _onMouseMove({ clientX, clientY }) {
-    if (!this.isActive) {
-      return;
-    }
-
     const direction = dasherize(this._direction);
     const original = this._original;
     const ratio = original.height / original.width;
@@ -167,6 +158,11 @@ class ReSizable extends Component {
     }
 
     this.set('isActive', false);
+
+    removeEventListener(this, window, 'mouseup', this._onMouseUp);
+    removeEventListener(this, window, 'mousemove', this._onMouseMove);
+    removeEventListener(this, window, 'touchmove', this._onTouchMove);
+    removeEventListener(this, window, 'touchend', this._onMouseUp);
   }
 }
 
