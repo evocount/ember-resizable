@@ -47,9 +47,9 @@ Have a look at the code snippets in the demo for an example on how this can be d
 ### Actions
 | Name | Params | Note |
 | --- | --- | --- |
-| `onResizeStart`  | `direction`, `{ width: computedWidth, height: computedHeight }`, `{ width: clientWidth, height: clientHeight }`, `event` |   |
-| `onResizeStop`   |  `direction`, `{ width: computedWidth, height: computedHeight }`, `{ width: clientWidth, height: clientHeight }`, `{ width: deltaX, height: deltaY }` | If you did not adjust the size of `<ReSizable>` by changing its dimension using for e.g. the values provided by `onResize` `deltaX` and `deltaY` will be `0` |
-| `onResize`       | `direction`, `{ width: newWidth, height: newHeight }`, `{ width: clientWidth, height: clientHeight }`, `{ width: deltaX, height: deltaY }`  |  . |
+| `onResizeStart`  | `direction`, `event`, `element` | `element` is the `<ReSizable>` DOM element |
+| `onResizeStop`   |  `direction`, `{ width: deltaX, height: deltaY }`, `element` | If you did not adjust the size of `<ReSizable>` by changing its dimension using for e.g. the values provided by `onResize` `deltaX` and `deltaY` will be `0` |
+| `onResize`       | `direction`, `{ width: newWidth, height: newHeight }`, `{ width: deltaX, height: deltaY }`, `element`  |  . |
 
 
 In addition it is possible to adjust the size of the resize handlers in your scss:

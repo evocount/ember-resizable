@@ -41,12 +41,7 @@ class ReSizable extends Component {
   @action
   _onResizeStart(direction, event) {
     if(this.onResizeStart) {
-      const clientSize = {
-        width: this.element.clientWidth,
-        height: this.element.clientHeight
-      };
-
-      this.onResizeStart(direction, this.getBoxSize(), clientSize, event);
+      this.onResizeStart(direction, event, this.element);
     }
 
     const size = this.getBoxSize();
@@ -136,8 +131,8 @@ class ReSizable extends Component {
       this.onResize(
         this._direction,
         { width: newWidth, height: newHeight },
-        { width: this.element.clientWidth, height: this.element.clientHeight },
-        { width: newWidth - original.width, height: newHeight - original.height }
+        { width: newWidth - original.width, height: newHeight - original.height },
+        this.element
       );
     }
   }
@@ -151,9 +146,8 @@ class ReSizable extends Component {
       const styleSize = this.getBoxSize();
       this.onResizeStop(
         this._direction,
-        styleSize,
-        { width: this.element.clientWidth, height: this.element.clientHeight },
-        { width: styleSize.width - this._original.width, height: styleSize.height - this._original.height }
+        { width: styleSize.width - this._original.width, height: styleSize.height - this._original.height },
+        this.element
       );
     }
 
