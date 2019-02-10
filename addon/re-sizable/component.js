@@ -39,7 +39,7 @@ class ReSizable extends Component {
       s = `${s}height: ${getSize(this.elementHeight || this.height)};`;
     }
 
-    return s;
+    return s || null;
   }
 
   @computed('_width')
