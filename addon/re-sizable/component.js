@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { dasherize, capitalize } from '@ember/string';
+import { dasherize, capitalize, htmlSafe } from '@ember/string';
 import { isNone } from '@ember/utils';
 import { action, computed } from '@ember-decorators/object';
 import { attribute, className, classNames, layout } from '@ember-decorators/component';
@@ -39,7 +39,8 @@ class ReSizable extends Component {
       s = `${s}height: ${getSize(this.elementHeight || this.height)};`;
     }
 
-    return s || null;
+    // can we be sure this actually is safe?
+    return s.length ? htmlSafe(s) : null;
   }
 
   @computed('_width')
@@ -199,5 +200,7 @@ class ReSizable extends Component {
     removeEventListener(this, window, 'touchend', this._onMouseUp);
   }
 }
+
+export { getSize };
 
 export default ReSizable;
