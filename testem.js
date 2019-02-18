@@ -2,10 +2,12 @@ module.exports = {
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
   launch_in_ci: [
-    'Chrome'
+    'Chrome',
+    'Firefox'
   ],
   launch_in_dev: [
-    'Chrome'
+    'Chrome',
+    'Firefox'
   ],
   browser_args: {
     Chrome: {
@@ -20,6 +22,9 @@ module.exports = {
         '--remote-debugging-port=0',
         '--window-size=1440,900'
       ].filter(Boolean)
-    }
+    },
+    Firefox: {
+      ci: ['-headless'],
+    },
   }
 };

@@ -10,6 +10,7 @@ dist: trusty
 
 addons:
   chrome: stable
+  firefox: latest-esr
 
 cache:
   directories:
