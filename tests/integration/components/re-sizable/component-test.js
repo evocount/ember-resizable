@@ -4,7 +4,7 @@ import { render, triggerEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { dasherize } from '@ember/string';
 
-import /*ReSizable,*/ { getSize } from 'ember-resizable/re-sizable/component';
+import /*ReSizable,*/ { getSize } from 'ember-resizable/components/re-sizable/component';
 
 const DIRECTIONS = ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'];
 
