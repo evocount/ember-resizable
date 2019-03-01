@@ -63,6 +63,12 @@ In addition it is possible to adjust the size of the resize handlers in your scs
 $ember-resizable-resizer-size: 10px;
 ```
 
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+
 License
 ------------------------------------------------------------------------------
 
