@@ -119,37 +119,21 @@ class ReSizable extends Component {
     let newWidth = original.width;
     let newHeight = original.height;
 
-    if (direction.includes('right')) {
+    if (direction.includes('right') || direction.includes('left')) {
+      let factor = direction.includes('left') ? -1 : 1;
       newWidth = this._calcualateResized(
-        original.x,
-        clientX,
+        original.x * factor,
+        clientX * factor,
         'width',
         this.grid[0]
       );
     }
 
-    if (direction.includes('left')) {
-      newWidth = this._calcualateResized(
-        -original.x,
-        -clientX,
-        'width',
-        this.grid[0]
-      );
-    }
-
-    if (direction.includes('bottom')) {
+    if (direction.includes('bottom') || direction.includes('top')) {
+      let factor = direction.includes('top') ? -1 : 1;
       newHeight = this._calcualateResized(
-        original.y,
-        clientY,
-        'height',
-        this.grid[1]
-      );
-    }
-
-    if (direction.includes('top')) {
-      newHeight = this._calcualateResized(
-        -original.y,
-        -clientY,
+        original.y * factor,
+        clientY * factor,
         'height',
         this.grid[1]
       );
