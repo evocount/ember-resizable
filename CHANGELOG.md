@@ -7,11 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 ### Fixed
-- Folder structured. Components were not actually in `components` folder.
+- Folder structure. Components were not actually in `components` folder.
 
 ### Changed
 - Dependency updates.
-- Depend on ember-angle-bracket-invocation-polyfill to bring support for ember < 3.4 (but > 3.2, because we need the let helper).
+- Depend on ember-native-class-polyfill to bring compatibility with Ember >= v3.4.
 
 ## [0.3.1] - 2019-02-10
 ### Fixed

@@ -9,6 +9,12 @@ Resizable component for Ember.  ([Demo](https://evocount.github.io/ember-resizab
 
 This is larged inspired by/based on [re-resizable](https://github.com/bokuweb/re-resizable).
 
+Compatibility
+------------------------------------------------------------------------------
+
+* Ember.js v3.4 or above
+* Ember CLI v2.13 or above
+
 Installation
 ------------------------------------------------------------------------------
 
