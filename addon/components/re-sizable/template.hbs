@@ -1,10 +1,10 @@
-{{#let (component "re-sizable/resizer") as |ReSizer|}}
-  {{#each directions as |dir|}}
-    <ReSizer
-      @direction={{dir}}
-      @onResizeStart={{action "_onResizeStart"}}
-    />
-  {{/each}}
-{{/let}}
+{{#each directions as |dir|}}
+  <div
+    class={{concat "resizer " dir}}
+    {{on "mousedown" (action this._onResizeStart dir)}}
+    {{on "touchstart" (action this._onResizeStart dir)}}
+  >
+  </div>
+{{/each}}
 
 {{yield}}
