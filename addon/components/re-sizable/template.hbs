@@ -1,8 +1,8 @@
 {{#each directions as |dir|}}
   <div
     class={{concat "resizer " dir}}
-    {{on "mousedown" (action this._onResizeStart dir)}}
-    {{on "touchstart" (action this._onResizeStart dir)}}
+    {{on "mousedown" this._onResizeStart dir}}
+    {{on "touchstart" this._onResizeStart dir}}
   >
   </div>
 {{/each}}
