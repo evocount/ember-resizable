@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { dasherize, capitalize, htmlSafe } from '@ember/string';
 import { isNone } from '@ember/utils';
-import { action, computed } from '@ember-decorators/object';
+import { action, computed } from '@ember/object';
 import { attribute, className, classNames, layout } from '@ember-decorators/component';
 import { addEventListener, removeEventListener, runDisposables } from 'ember-lifeline';
 import template from './template';
