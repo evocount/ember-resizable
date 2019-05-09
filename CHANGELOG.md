@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 - …
 
+## [0.4.2] - 2019-05-09
+### Fixed
+- Fix initiating resize with right mouse button causes component to become stuck in resize mode (#72).
+
+### Changed
+- Dependency updates.
+
 ## [0.4.1] - 2019-04-13
 ### Changed
 - Dependency updates.
