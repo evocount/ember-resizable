@@ -80,6 +80,11 @@ class ReSizable extends Component {
   _onResizeStart(direction, event) {
     if (event.touches) {
       event = event.touches[0];
+    } else {
+      if (event.button === 2) {
+        // Upon click with right mouse button we can become stuck in resizing mode
+        return;
+      }
     }
 
     if(this.onResizeStart) {
