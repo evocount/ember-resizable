@@ -10,6 +10,10 @@ module.exports = function(defaults) {
       'bootstrapVersion': 4,
       'importBootstrapFont': false,
       'importBootstrapCSS': false
+    },
+
+    'ember-prism': {
+      'components': ['handlebars', 'javascript', 'markup-templating'],
     }
   });
 

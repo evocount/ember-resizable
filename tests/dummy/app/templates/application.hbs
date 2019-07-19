@@ -19,7 +19,7 @@
       <PowerSelectMultiple
         @options={{availableDirections}}
         @selected={{el.value}}
-        @onchange={{action (mut el.value)}} as |item|
+        @onChange={{action (mut el.value)}} as |item|
       >
         {{item}}
       </PowerSelectMultiple>
@@ -48,10 +48,14 @@
       </ReSizable>
     </Tab.pane>
     <Tab.pane @title="Template">
-      <CodeSnippet @name="resizable.hbs" />
+      {{#let (get-code-snippet "resizable.hbs") as |snippet|}}
+        <CodeBlock @code={{snippet.source}} @language={{snippet.language}} />
+      {{/let}}
     </Tab.pane>
     <Tab.pane @title="Code">
-      <CodeSnippet @name="resizable.js" />
+      {{#let (get-code-snippet "resizable.js") as |snippet|}}
+        <CodeBlock @code={{snippet.source}} @language={{snippet.language}} />
+      {{/let}}
     </Tab.pane>
   </BsTab>
 </section>
