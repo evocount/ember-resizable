@@ -1,6 +1,6 @@
 {
   "name": "ember-resizable",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Resizable component for Ember.",
   "keywords": [
     "ember-addon",
