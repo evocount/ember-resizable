@@ -111,7 +111,7 @@ class ReSizable extends Component {
     this._onMouseMove(event.touches[0]);
   }
 
-  _calcualateResized(originalPos, currentPos, dimension, snapSize) {
+  _calculateResized(originalPos, currentPos, dimension, snapSize) {
     let newSize = this.get(`_original.${dimension}`) + currentPos - originalPos;
     newSize = Math.max(
       Math.min(newSize, this.get(`max${capitalize(dimension)}`) || newSize),
@@ -130,7 +130,7 @@ class ReSizable extends Component {
 
     if (direction.includes('right') || direction.includes('left')) {
       let factor = direction.includes('left') ? -1 : 1;
-      newWidth = this._calcualateResized(
+      newWidth = this._calculateResized(
         original.x * factor,
         clientX * factor,
         'width',
@@ -140,7 +140,7 @@ class ReSizable extends Component {
 
     if (direction.includes('bottom') || direction.includes('top')) {
       let factor = direction.includes('top') ? -1 : 1;
-      newHeight = this._calcualateResized(
+      newHeight = this._calculateResized(
         original.y * factor,
         clientY * factor,
         'height',
