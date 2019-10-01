@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 - …
 
+## [0.4.5] - 2019-10-01
+### Fixed
+- ember-lifeline moved to dependencies
+
+### Changed
+- Dependency updates.
+
 ## [0.4.4] - 2019-07-19
 ### Changed
 - Dependency updates.
