@@ -27,8 +27,8 @@
     "deploy:demo": "ember build --environment production && ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\" && git push origin gh-pages:gh-pages"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.11.1",
-    "ember-cli-htmlbars": "^4.0.1",
+    "ember-cli-babel": "^7.12.0",
+    "ember-cli-htmlbars": "^4.0.2",
     "ember-cli-sass": "^10.0.1",
     "ember-decorators": "^6.1.1",
     "ember-lifeline": "^4.1.5",
@@ -39,8 +39,8 @@
     "babel-eslint": "^10.0.3",
     "bootstrap": "^4.3.1",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-bootstrap": "^2.8.0",
-    "ember-cli": "~3.13.0",
+    "ember-bootstrap": "^2.8.1",
+    "ember-cli": "~3.13.1",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-eslint": "^5.1.0",
     "ember-cli-github-pages": "^0.2.2",
