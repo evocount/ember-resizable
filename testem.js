@@ -9,6 +9,7 @@ module.exports = {
     'Chrome',
     'Firefox'
   ],
+  browser_start_timeout: 120,
   browser_args: {
     Chrome: {
       ci: [

@@ -12,8 +12,10 @@ This is larged inspired by/based on [re-resizable](https://github.com/bokuweb/re
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.8 or above
+* Ember.js v3.12 or above
 * Ember CLI v2.13 or above
+* Node.js v10 or above
+
 
 Installation
 ------------------------------------------------------------------------------
