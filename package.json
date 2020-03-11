@@ -27,26 +27,26 @@
     "deploy:demo": "ember build --environment production && ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\" && git push origin gh-pages:gh-pages"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.17.2",
-    "ember-cli-htmlbars": "^4.2.2",
+    "ember-cli-babel": "^7.18.0",
+    "ember-cli-htmlbars": "^4.2.3",
     "ember-cli-sass": "^10.0.1",
     "ember-decorators": "^6.1.1",
-    "ember-decorators-polyfill": "^1.1.1",
+    "ember-decorators-polyfill": "^1.1.3",
     "ember-fn-helper-polyfill": "^1.0.2",
     "ember-lifeline": "^5.0.0",
     "ember-native-class-polyfill": "^1.0.6",
     "ember-on-modifier": "^1.0.0",
-    "sass": "^1.24.2"
+    "sass": "^1.26.2"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.3.0",
     "@glimmer/component": "^1.0.0",
     "@glimmer/tracking": "^1.0.0",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "bootstrap": "^4.4.1",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.5.3",
-    "ember-bootstrap": "^3.1.0",
+    "ember-bootstrap": "^3.1.2",
     "ember-cli": "~3.16.0",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-eslint": "^5.1.0",
@@ -54,7 +54,7 @@
     "ember-cli-inject-live-reload": "^2.0.2",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-sri": "^2.1.1",
-    "ember-cli-template-lint": "^2.0.0",
+    "ember-cli-template-lint": "^2.0.2",
     "ember-cli-uglify": "^3.0.0",
     "ember-code-snippet": "^3.0.0",
     "ember-disable-prototype-extensions": "^1.1.3",
@@ -65,13 +65,13 @@
     "ember-prism": "^0.5.0",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^7.0.0",
-    "ember-source": "~3.16.0",
+    "ember-source": "~3.16.3",
     "ember-source-channel-url": "^2.0.1",
     "ember-try": "^1.4.0",
-    "eslint-plugin-ember": "^7.7.2",
+    "eslint-plugin-ember": "^7.10.1",
     "eslint-plugin-node": "^11.0.0",
     "loader.js": "^4.7.0",
-    "qunit-dom": "^1.0.0"
+    "qunit-dom": "^1.1.0"
   },
   "engines": {
     "node": "10.* || >= 12"
