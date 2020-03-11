@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 - …
 
+## [1.0.0] - 2020-03-11
+### Changed
+- Dependency updates
+- Raised minimum Ember and Node versions
+
 ## [0.4.6] - 2019-12-03
 ### Fixed
 - polyfills moved to dependencies
