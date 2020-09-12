@@ -6,8 +6,6 @@ import { attribute, className, classNames, layout } from '@ember-decorators/comp
 import { addEventListener, removeEventListener, runDisposables } from 'ember-lifeline';
 import template from './template';
 
-/*global window*/
-
 const getSize = (n) => !isNaN(parseFloat(n)) && isFinite(n) ? `${n}px` : n;
 
 @layout(template)
