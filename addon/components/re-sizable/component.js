@@ -76,6 +76,10 @@ class ReSizable extends Component {
 
   @action
   _onResizeStart(direction, event) {
+    if (this.isActive){
+      return;
+    }
+
     if (event.touches) {
       event = event.touches[0];
     } else {
