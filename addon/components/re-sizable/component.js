@@ -3,7 +3,7 @@ import { dasherize, capitalize, htmlSafe } from '@ember/string';
 import { isNone } from '@ember/utils';
 import { action, computed } from '@ember/object';
 import { attribute, className, classNames, layout } from '@ember-decorators/component';
-import { addEventListener, removeEventListener, runDisposables } from 'ember-lifeline';
+import { addEventListener, removeEventListener } from 'ember-lifeline';
 import template from './template';
 
 const getSize = (n) => !isNaN(parseFloat(n)) && isFinite(n) ? `${n}px` : n;
@@ -59,12 +59,6 @@ class ReSizable extends Component {
   set height(value) {
     this.set('_height', value);
     this.set('elementHeight', value);
-  }
-
-  willDestroyElement() {
-    super.willDestroyElement(...arguments);
-
-    runDisposables(this);
   }
 
   getBoxSize() {
