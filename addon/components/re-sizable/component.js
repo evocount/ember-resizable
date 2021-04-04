@@ -1,5 +1,6 @@
 import Component from '@ember/component';
-import { dasherize, capitalize, htmlSafe } from '@ember/string';
+import { dasherize, capitalize } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 import { isNone } from '@ember/utils';
 import { action, computed } from '@ember/object';
 import { attribute, className, classNames, layout } from '@ember-decorators/component';
