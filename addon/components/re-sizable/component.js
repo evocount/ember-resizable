@@ -1,14 +1,9 @@
 import Component from '@ember/component';
 import { dasherize, capitalize } from '@ember/string';
-import { htmlSafe } from '@ember/template';
 import { isNone } from '@ember/utils';
 import { action, computed } from '@ember/object';
-import {
-  attribute,
-  className,
-  classNames,
-  layout,
-} from '@ember-decorators/component';
+import { className, classNames, layout } from '@ember-decorators/component';
+import { observes, on } from '@ember-decorators/object';
 import template from './template';
 
 const getSize = (n) => (!isNaN(parseFloat(n)) && isFinite(n) ? `${n}px` : n);
@@ -40,19 +35,26 @@ class ReSizable extends Component {
   @className
   isActive = false;
 
-  @attribute
-  @computed('width', 'height', 'elementWidth', 'elementHeight')
-  get style() {
-    let s = '';
-    if (!isNone(this.width)) {
-      s = `width: ${getSize(this.elementWidth || this.width)};`;
+  @on('didRender')
+  // eslint-disable-next-line ember/no-observers
+  @observes('width', 'height', 'elementWidth', 'elementHeight')
+  style() {
+    if (isNone(this.width)) {
+      this.element.style.removeProperty('width');
+    } else {
+      this.element.style.setProperty(
+        'width',
+        getSize(this.elementWidth || this.width)
+      );
     }
-    if (!isNone(this.height)) {
-      s = `${s}height: ${getSize(this.elementHeight || this.height)};`;
+    if (isNone(this.height)) {
+      this.element.style.removeProperty('height');
+    } else {
+      this.element.style.setProperty(
+        'height',
+        getSize(this.elementHeight || this.height)
+      );
     }
-
-    // can we be sure this actually is safe?
-    return s.length ? htmlSafe(s) : null;
   }
 
   @computed('_width')
