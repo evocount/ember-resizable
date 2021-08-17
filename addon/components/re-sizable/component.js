@@ -117,18 +117,14 @@ class ReSizable extends Component {
     });
     this.set('_direction', direction);
 
-    window.addEventListener('mouseup', this._onMouseUp, {
-      passive: true,
-    });
+    window.addEventListener('mouseup', this._onMouseUp);
     window.addEventListener('mousemove', this._onMouseMove, {
       passive: true,
     });
     window.addEventListener('touchmove', this._onTouchMove, {
       passive: true,
     });
-    window.addEventListener('touchend', this._onMouseUp, {
-      passive: true,
-    });
+    window.addEventListener('touchend', this._onMouseUp);
   }
 
   @action

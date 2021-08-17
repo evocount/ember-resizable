@@ -19,6 +19,15 @@ const DIRECTIONS = [
   'topLeft',
 ];
 
+async function _resize(direction) {
+  await triggerEvent(`div.${direction}`, 'mousedown', {
+    clientX: 110,
+    clientY: 40,
+  });
+  await triggerEvent(window, 'mousemove', { clientX: 160, clientY: 80 });
+  await triggerEvent(window, 'mouseup', {});
+}
+
 module('Integration | Component | re-sizable', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -103,12 +112,7 @@ module('Integration | Component | re-sizable', function (hooks) {
       let width = this.width;
       let height = this.height;
 
-      await triggerEvent(`div.${direction}`, 'mousedown', {
-        clientX: 110,
-        clientY: 40,
-      });
-      await triggerEvent(window, 'mousemove', { clientX: 160, clientY: 80 });
-      await triggerEvent(window, 'mouseup', {});
+      await _resize(direction);
 
       const dashDir = dasherize(direction);
       if (dashDir.includes('top')) {
@@ -129,5 +133,22 @@ module('Integration | Component | re-sizable', function (hooks) {
         `${height}px`
       );
     }
+  });
+
+  test('allows calling `preventDefault` on the start-resize event', async function (assert) {
+    assert.expect(1);
+
+    this.set('width', 200);
+    this.set('height', 150);
+
+    this.set('onResizeStart', (_direction, event) => event.preventDefault());
+
+    await render(
+      hbs`<ReSizable @width={{this.width}} @height={{this.height}} @onResizeStart={{this.onResizeStart}}>Hello</ReSizable>`
+    );
+
+    await _resize('top');
+
+    assert.ok(true);
   });
 });
