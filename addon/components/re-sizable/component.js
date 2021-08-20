@@ -9,7 +9,6 @@ import {
   classNames,
   layout,
 } from '@ember-decorators/component';
-import { addEventListener, removeEventListener } from 'ember-lifeline';
 import template from './template';
 
 const getSize = (n) => (!isNaN(parseFloat(n)) && isFinite(n) ? `${n}px` : n);
@@ -76,6 +75,12 @@ class ReSizable extends Component {
     this.set('elementHeight', value);
   }
 
+  willDestroyElement() {
+    super.willDestroyElement(...arguments);
+
+    this._removeEventListeners();
+  }
+
   getBoxSize() {
     const style = window.getComputedStyle(this.element);
     const width = ~~style.getPropertyValue('width').replace('px', '');
@@ -112,20 +117,21 @@ class ReSizable extends Component {
     });
     this.set('_direction', direction);
 
-    addEventListener(this, window, 'mouseup', this._onMouseUp, {
+    window.addEventListener('mouseup', this._onMouseUp, {
       passive: true,
     });
-    addEventListener(this, window, 'mousemove', this._onMouseMove, {
+    window.addEventListener('mousemove', this._onMouseMove, {
       passive: true,
     });
-    addEventListener(this, window, 'touchmove', this._onTouchMove, {
+    window.addEventListener('touchmove', this._onTouchMove, {
       passive: true,
     });
-    addEventListener(this, window, 'touchend', this._onMouseUp, {
+    window.addEventListener('touchend', this._onMouseUp, {
       passive: true,
     });
   }
 
+  @action
   _onTouchMove(event) {
     this._onMouseMove(event.touches[0]);
   }
@@ -140,6 +146,7 @@ class ReSizable extends Component {
     return newSize;
   }
 
+  @action
   _onMouseMove({ clientX, clientY }) {
     const direction = dasherize(this._direction);
     const original = this._original;
@@ -193,6 +200,7 @@ class ReSizable extends Component {
     }
   }
 
+  @action
   _onMouseUp() {
     if (!this.isActive) {
       return;
@@ -212,10 +220,14 @@ class ReSizable extends Component {
 
     this.set('isActive', false);
 
-    removeEventListener(this, window, 'mouseup', this._onMouseUp);
-    removeEventListener(this, window, 'mousemove', this._onMouseMove);
-    removeEventListener(this, window, 'touchmove', this._onTouchMove);
-    removeEventListener(this, window, 'touchend', this._onMouseUp);
+    this._removeEventListeners();
+  }
+
+  _removeEventListeners() {
+    window.removeEventListener('mouseup', this._onMouseUp);
+    window.removeEventListener('mousemove', this._onMouseMove);
+    window.removeEventListener('touchmove', this._onTouchMove);
+    window.removeEventListener('touchend', this._onMouseUp);
   }
 }
 

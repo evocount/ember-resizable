@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     'ember/classic-decorator-no-classic-methods': 'off', // TODO: enable and fix warnings
     'ember/no-classic-components': 'off', // TODO: enable and fix warnings
+    'ember/no-component-lifecycle-hooks': 'off', // TODO: enable and fix warnings
     'ember/no-computed-properties-in-native-classes': 'off', // TODO: enable and fix warnings
     'ember/require-tagless-components': 'off', // TODO: enable and fix warnings
   },
