@@ -3,11 +3,16 @@ import { dasherize, capitalize } from '@ember/string';
 import { htmlSafe } from '@ember/template';
 import { isNone } from '@ember/utils';
 import { action, computed } from '@ember/object';
-import { attribute, className, classNames, layout } from '@ember-decorators/component';
+import {
+  attribute,
+  className,
+  classNames,
+  layout,
+} from '@ember-decorators/component';
 import { addEventListener, removeEventListener } from 'ember-lifeline';
 import template from './template';
 
-const getSize = (n) => !isNaN(parseFloat(n)) && isFinite(n) ? `${n}px` : n;
+const getSize = (n) => (!isNaN(parseFloat(n)) && isFinite(n) ? `${n}px` : n);
 
 @layout(template)
 @classNames('re-sizable')
@@ -18,7 +23,16 @@ class ReSizable extends Component {
   maxHeight = null;
   grid = [1, 1];
   lockAspectRatio = false;
-  directions = ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'];
+  directions = [
+    'top',
+    'right',
+    'bottom',
+    'left',
+    'topRight',
+    'bottomRight',
+    'bottomLeft',
+    'topLeft',
+  ];
 
   onResizeStart = null;
   onResizeStop = null;
@@ -71,7 +85,7 @@ class ReSizable extends Component {
 
   @action
   _onResizeStart(direction, event) {
-    if (this.isActive){
+    if (this.isActive) {
       return;
     }
 
@@ -84,7 +98,7 @@ class ReSizable extends Component {
       }
     }
 
-    if(this.onResizeStart) {
+    if (this.onResizeStart) {
       this.onResizeStart(direction, event, this.element);
     }
 
@@ -98,10 +112,18 @@ class ReSizable extends Component {
     });
     this.set('_direction', direction);
 
-    addEventListener(this, window, 'mouseup', this._onMouseUp, { passive: true });
-    addEventListener(this, window, 'mousemove', this._onMouseMove, { passive: true });
-    addEventListener(this, window, 'touchmove', this._onTouchMove, { passive: true });
-    addEventListener(this, window, 'touchend', this._onMouseUp, { passive: true });
+    addEventListener(this, window, 'mouseup', this._onMouseUp, {
+      passive: true,
+    });
+    addEventListener(this, window, 'mousemove', this._onMouseMove, {
+      passive: true,
+    });
+    addEventListener(this, window, 'touchmove', this._onTouchMove, {
+      passive: true,
+    });
+    addEventListener(this, window, 'touchend', this._onMouseUp, {
+      passive: true,
+    });
   }
 
   _onTouchMove(event) {
@@ -162,14 +184,17 @@ class ReSizable extends Component {
       this.onResize(
         this._direction,
         { width: newWidth, height: newHeight },
-        { width: newWidth - original.width, height: newHeight - original.height },
+        {
+          width: newWidth - original.width,
+          height: newHeight - original.height,
+        },
         this.element
       );
     }
   }
 
   _onMouseUp() {
-    if (!this.isActive){
+    if (!this.isActive) {
       return;
     }
 
@@ -177,7 +202,10 @@ class ReSizable extends Component {
       const styleSize = this.getBoxSize();
       this.onResizeStop(
         this._direction,
-        { width: styleSize.width - this._original.width, height: styleSize.height - this._original.height },
+        {
+          width: styleSize.width - this._original.width,
+          height: styleSize.height - this._original.height,
+        },
         this.element
       );
     }

@@ -7,14 +7,14 @@ module.exports = function (defaults) {
     snippetPaths: ['tests/dummy/app/snippets'],
 
     'ember-bootstrap': {
-      'bootstrapVersion': 4,
-      'importBootstrapFont': false,
-      'importBootstrapCSS': false
+      bootstrapVersion: 4,
+      importBootstrapFont: false,
+      importBootstrapCSS: false,
     },
 
     'ember-prism': {
-      'components': ['handlebars', 'javascript', 'markup-templating'],
-    }
+      components: ['handlebars', 'javascript', 'markup-templating'],
+    },
   });
 
   /*

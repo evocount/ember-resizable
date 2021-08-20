@@ -19,7 +19,12 @@ module.exports = {
   env: {
     browser: true,
   },
-  rules: {},
+  rules: {
+    'ember/classic-decorator-no-classic-methods': 'off', // TODO: enable and fix warnings
+    'ember/no-classic-components': 'off', // TODO: enable and fix warnings
+    'ember/no-computed-properties-in-native-classes': 'off', // TODO: enable and fix warnings
+    'ember/require-tagless-components': 'off', // TODO: enable and fix warnings
+  },
   overrides: [
     // node files
     {
