@@ -91,7 +91,7 @@ module('Integration | Component | re-sizable', function (hooks) {
     );
 
     await render(
-      hbs`<ReSizable @width={{this.width}} @height={{this.height}} @onResize={{action onResize}}>Hello</ReSizable>`
+      hbs`<ReSizable @width={{this.width}} @height={{this.height}} @onResize={{this.onResize}}>Hello</ReSizable>`
     );
 
     for (let i = 0; i < DIRECTIONS.length; ++i) {
