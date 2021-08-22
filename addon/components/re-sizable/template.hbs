@@ -2,8 +2,8 @@
   {{! template-lint-disable no-down-event-binding }}
   <div
     class={{concat "resizer " dir}}
-    {{on "mousedown" (fn this._onResizeStart dir) passive=true}}
-    {{on "touchstart" (fn this._onResizeStart dir) passive=true}}
+    {{on "mousedown" (fn this._onResizeStart dir)}}
+    {{on "touchstart" (fn this._onResizeStart dir)}}
     role="button"
   >
   </div>
