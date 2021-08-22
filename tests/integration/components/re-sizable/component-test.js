@@ -68,7 +68,7 @@ module('Integration | Component | re-sizable', function (hooks) {
   });
 
   test('should react to width/height changes', async function (assert) {
-    assert.expect(5);
+    assert.expect(4);
 
     this.set('width', 100);
     this.set('height', 50);
@@ -83,10 +83,6 @@ module('Integration | Component | re-sizable', function (hooks) {
     this.set('width', '150px');
     this.set('height', '20%');
 
-    assert.equal(
-      this.element.querySelector('div').getAttribute('style'),
-      'width: 150px; height: 20%;'
-    );
     assert.equal(
       this.element.querySelector('div').getAttribute('style'),
       'width: 150px; height: 20%;'
