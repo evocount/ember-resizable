@@ -35,6 +35,8 @@ class ReSizable extends Component {
   @className
   isActive = false;
 
+  // this is done so instead of with an `@attribute` because the latter requires `unsafe-inline` in `style-src`
+  // in the CSP settings. See https://github.com/evocount/ember-resizable/issues/405
   @on('didRender')
   // eslint-disable-next-line ember/no-observers
   @observes('width', 'height', 'elementWidth', 'elementHeight')
