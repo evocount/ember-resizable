@@ -10,12 +10,30 @@ export default class ApplicationController extends Controller {
   maxHeight = null;
   grid = [1, 1];
   lockAspectRatio = false;
-  directions = ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'];
+  directions = [
+    'top',
+    'right',
+    'bottom',
+    'left',
+    'topRight',
+    'bottomRight',
+    'bottomLeft',
+    'topLeft',
+  ];
 
-  availableDirections = ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'];
+  availableDirections = [
+    'top',
+    'right',
+    'bottom',
+    'left',
+    'topRight',
+    'bottomRight',
+    'bottomLeft',
+    'topLeft',
+  ];
 
   @action
-  onResize(direction, newDimensions/*, delta, element*/) {
+  onResize(direction, newDimensions /*, delta, element*/) {
     this.setProperties(newDimensions);
   }
 }
