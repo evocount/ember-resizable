@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/evocount/ember-resizable.svg?branch=master)](https://travis-ci.org/evocount/ember-resizable)
+![Build Status](https://github.com/evocount/ember-resizable/workflows/CI/badge.svg)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-resizable.svg)](https://emberobserver.com/addons/ember-resizable)
 [![npm version](https://badge.fury.io/js/ember-resizable.svg)](https://badge.fury.io/js/ember-resizable)
 
