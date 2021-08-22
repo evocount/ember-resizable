@@ -68,7 +68,7 @@ module('Integration | Component | re-sizable', function (hooks) {
   });
 
   test('should react to width/height changes', async function (assert) {
-    assert.expect(3);
+    assert.expect(5);
 
     this.set('width', 100);
     this.set('height', 50);
@@ -85,8 +85,17 @@ module('Integration | Component | re-sizable', function (hooks) {
 
     assert.equal(
       this.element.querySelector('div').getAttribute('style'),
-      'width: 150px;height: 20%;'
+      'width: 150px; height: 20%;'
     );
+    assert.equal(
+      this.element.querySelector('div').getAttribute('style'),
+      'width: 150px; height: 20%;'
+    );
+
+    this.set('width', null);
+    this.set('height', undefined);
+
+    assert.equal(this.element.querySelector('div').getAttribute('style'), '');
   });
 
   test('should resize to input', async function (assert) {
