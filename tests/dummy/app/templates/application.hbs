@@ -21,7 +21,7 @@
       <PowerSelectMultiple
         @options={{this.availableDirections}}
         @selected={{el.value}}
-        @onChange={{fn (mut el.value)}}
+        @onChange={{el.setValue}}
         as |item|
       >
         {{item}}
