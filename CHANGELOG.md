@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 - …
 
+## [2.0.0] - 2021-08-24
+### Fixed
+- Prevent adding listeners if resize is already active
+- Multiple deprecation warnings
+
+### Changed
+- `Dart Sass 1.33.0+` is required to work with the SCSS (BREAKING)
+- Raised minimum Ember version (BREAKING)
+- Made the `mousemove` and `touchmove` event handlers passive
+- Removed using a style-attribute as that requires `unsafe-inline` in the CSP
+- Dependency updates
+
 ## [1.0.1] - 2020-09-12
 ### Changed
 - Dependency updates
