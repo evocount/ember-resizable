@@ -37,7 +37,12 @@ $ember-resizable-resizer-size: 10px !default;
     }
 
     &.right {
-      right: math.div(-$ember-resizable-resizer-size, 2);
+      [dir='ltr'] & {
+        right: math.div(-$ember-resizable-resizer-size, 2);
+      }
+      [dir='rtl'] & {
+        left: math.div(-$ember-resizable-resizer-size, 2);
+      }
     }
 
     &.bottom {
@@ -45,7 +50,12 @@ $ember-resizable-resizer-size: 10px !default;
     }
 
     &.left {
-      left: math.div(-$ember-resizable-resizer-size, 2);
+      [dir='ltr'] & {
+        left: math.div(-$ember-resizable-resizer-size, 2);
+      }
+      [dir='rtl'] & {
+        right: math.div(-$ember-resizable-resizer-size, 2);
+      }
     }
 
     &.topRight,
@@ -57,27 +67,55 @@ $ember-resizable-resizer-size: 10px !default;
     }
 
     &.topRight {
-      right: -$ember-resizable-resizer-size;
+      [dir='ltr'] & {
+        right: -$ember-resizable-resizer-size;
+        cursor: sw-resize;
+      }
+
+      [dir='rtl'] & {
+        left: -$ember-resizable-resizer-size;
+        cursor: se-resize;
+      }
       top: -$ember-resizable-resizer-size;
-      cursor: sw-resize;
     }
 
     &.bottomRight {
-      right: -$ember-resizable-resizer-size;
+      [dir='ltr'] & {
+        right: -$ember-resizable-resizer-size;
+        cursor: nw-resize;
+      }
+
+      [dir='rtl'] & {
+        left: -$ember-resizable-resizer-size;
+        cursor: ne-resize;
+      }
+
       bottom: -$ember-resizable-resizer-size;
-      cursor: nw-resize;
     }
 
     &.bottomLeft {
-      left: -$ember-resizable-resizer-size;
+      [dir='ltr'] & {
+        left: -$ember-resizable-resizer-size;
+        cursor: ne-resize;
+      }
+      [dir='rtl'] & {
+        right: -$ember-resizable-resizer-size;
+        cursor: nw-resize;
+      }
       bottom: -$ember-resizable-resizer-size;
-      cursor: ne-resize;
     }
 
     &.topLeft {
-      left: -$ember-resizable-resizer-size;
+      [dir='ltr'] & {
+        left: -$ember-resizable-resizer-size;
+        cursor: se-resize;
+      }
+
+      [dir='rtl'] & {
+        right: -$ember-resizable-resizer-size;
+        cursor: sw-resize;
+      }
       top: -$ember-resizable-resizer-size;
-      cursor: se-resize;
     }
   }
 }
