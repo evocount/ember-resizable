@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 - …
 
+## [2.0.1] - 2021-10-11
+### Fixed
+- Right-to-left handling
+
 ## [2.0.0] - 2021-08-24
 ### Fixed
 - Prevent adding listeners if resize is already active
