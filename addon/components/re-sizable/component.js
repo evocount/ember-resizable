@@ -155,7 +155,8 @@ class ReSizable extends Component {
     let newHeight = original.height;
 
     if (direction.includes('right') || direction.includes('left')) {
-      let factor = direction.includes('left') ? -1 : 1;
+      let factor =
+        direction.includes('left') ^ (document.dir === 'rtl') ? -1 : 1;
       newWidth = this._calculateResized(
         original.x * factor,
         clientX * factor,
