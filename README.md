@@ -2,30 +2,27 @@
 [![Ember Observer Score](https://emberobserver.com/badges/ember-resizable.svg)](https://emberobserver.com/addons/ember-resizable)
 [![npm version](https://badge.fury.io/js/ember-resizable.svg)](https://badge.fury.io/js/ember-resizable)
 
-ember-resizable
-==============================================================================
+# ember-resizable
 
 Resizable component for Ember.  ([Demo](https://evocount.github.io/ember-resizable/))
 
 This is larged inspired by/based on [re-resizable](https://github.com/bokuweb/re-resizable).
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.20 or above
-* Ember CLI v3.20 or above
-* Node.js v10 or above
+* Ember.js v3.28 or above
+* Ember CLI v3.28 or above
+* Node.js v14 or above
 
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-resizable
 ```
 
-Usage
-------------------------------------------------------------------------------
+
+## Usage
 
 Include the following in your app.scss:
 
@@ -71,13 +68,11 @@ In addition it is possible to adjust the size of the resize handlers in your scs
 $ember-resizable-resizer-size: 10px;
 ```
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
 
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
