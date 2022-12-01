@@ -1,5 +1,5 @@
 {{#each this.directions as |dir|}}
-  {{! template-lint-disable no-down-event-binding }}
+  {{! template-lint-disable no-pointer-down-event-binding }}
   <div
     class={{concat "resizer " dir}}
     {{on "mousedown" (fn this._onResizeStart dir)}}
@@ -7,7 +7,7 @@
     role="button"
   >
   </div>
-  {{! template-lint-enable no-down-event-binding }}
+  {{! template-lint-enable no-pointer-down-event-binding }}
 {{/each}}
 
 {{yield}}

@@ -32,20 +32,20 @@ module('Integration | Component | re-sizable', function (hooks) {
   setupRenderingTest(hooks);
 
   test('should parse size', function (assert) {
-    assert.equal(getSize(100), '100px');
-    assert.equal(getSize('100'), '100px');
-    assert.equal(getSize('100px'), '100px');
-    assert.equal(getSize('100%'), '100%');
-    assert.equal(getSize('auto'), 'auto');
+    assert.strictEqual(getSize(100), '100px');
+    assert.strictEqual(getSize('100'), '100px');
+    assert.strictEqual(getSize('100px'), '100px');
+    assert.strictEqual(getSize('100%'), '100%');
+    assert.strictEqual(getSize('auto'), 'auto');
   });
 
   test('should not render style attr when width/height unset', async function (assert) {
     assert.expect(1);
 
     await render(hbs`<ReSizable>Hello World</ReSizable>`);
-    assert.equal(
+    assert.strictEqual(
       this.element.querySelector('div').getAttribute('style'),
-      undefined
+      null
     );
   });
 
@@ -58,11 +58,11 @@ module('Integration | Component | re-sizable', function (hooks) {
       hbs`<ReSizable @directions={{this.directions}}>Hello</ReSizable>`
     );
 
-    assert.equal(this.element.querySelectorAll('div.resizer').length, 8);
+    assert.strictEqual(this.element.querySelectorAll('div.resizer').length, 8);
 
     this.set('directions', ['top', 'right']);
 
-    assert.equal(this.element.querySelectorAll('div.resizer').length, 2);
+    assert.strictEqual(this.element.querySelectorAll('div.resizer').length, 2);
     assert.ok(this.element.querySelector('div.resizer.top'));
     assert.notOk(this.element.querySelector('div.resizer.bottom'));
   });
@@ -77,13 +77,13 @@ module('Integration | Component | re-sizable', function (hooks) {
       hbs`<ReSizable @width={{this.width}} @height={{this.height}}>Hello</ReSizable>`
     );
 
-    assert.equal(this.element.querySelector('div').style.width, '100px');
-    assert.equal(this.element.querySelector('div').style.height, '50px');
+    assert.strictEqual(this.element.querySelector('div').style.width, '100px');
+    assert.strictEqual(this.element.querySelector('div').style.height, '50px');
 
     this.set('width', '150px');
     this.set('height', '20%');
 
-    assert.equal(
+    assert.strictEqual(
       this.element.querySelector('div').getAttribute('style'),
       'width: 150px; height: 20%;'
     );
@@ -91,7 +91,10 @@ module('Integration | Component | re-sizable', function (hooks) {
     this.set('width', null);
     this.set('height', undefined);
 
-    assert.equal(this.element.querySelector('div').getAttribute('style'), '');
+    assert.strictEqual(
+      this.element.querySelector('div').getAttribute('style'),
+      ''
+    );
   });
 
   test('should resize to input', async function (assert) {
@@ -132,8 +135,11 @@ module('Integration | Component | re-sizable', function (hooks) {
         width += 50;
       }
 
-      assert.equal(this.element.querySelector('div').style.width, `${width}px`);
-      assert.equal(
+      assert.strictEqual(
+        this.element.querySelector('div').style.width,
+        `${width}px`
+      );
+      assert.strictEqual(
         this.element.querySelector('div').style.height,
         `${height}px`
       );
