@@ -162,4 +162,20 @@ module('Integration | Component | re-sizable', function (hooks) {
 
     assert.ok(true);
   });
+
+  test('allows marking the `mousedown` and `touchstart` events as `passive`', async function (assert) {
+    assert.expect(2);
+
+    this.set('onResizeStart', (_direction, event) => {
+      assert.throws(() => event.preventDefault());
+    });
+
+    await render(
+      hbs`<ReSizable @passive={{true}} @width={{200}} @height={{150}} @onResizeStart={{this.onResizeStart}}>Hello</ReSizable>`
+    );
+
+    await _resize('top');
+
+    assert.ok(true);
+  });
 });
