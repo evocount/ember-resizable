@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 - …
 
+## [3.0.0] - 2022-12-02
+### Changed
+- Raised minimum Ember version (BREAKING)
+- Raised minimum Node version (BREAKING)
+- Allow configuring whether the `mousedown` and `touchstart` events are `passive`
+
 ## [2.0.1] - 2021-10-11
 ### Fixed
 - Right-to-left handling
