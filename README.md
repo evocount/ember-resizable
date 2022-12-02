@@ -6,7 +6,7 @@
 
 Resizable component for Ember.  ([Demo](https://evocount.github.io/ember-resizable/))
 
-This is larged inspired by/based on [re-resizable](https://github.com/bokuweb/re-resizable).
+This is largely inspired by/based on [re-resizable](https://github.com/bokuweb/re-resizable).
 
 ## Compatibility
 
