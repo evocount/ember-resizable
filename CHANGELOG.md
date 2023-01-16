@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 - …
 
+## [3.0.1] - 2023-01-16
+### Changed
+- Add `@ember/string` as a dependency to fix Ember 4.10+ deprecation warnings
+
 ## [3.0.0] - 2022-12-02
 ### Changed
 - Raised minimum Ember version (BREAKING)
